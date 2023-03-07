@@ -2,9 +2,9 @@
     package="com.example.firebase_demo">
     <uses-permission android:name="android.permission.INTERNET" />
     <application
-        android:label="firebase_demo"
+        android:label="waitwise"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"
             android:exported="true"

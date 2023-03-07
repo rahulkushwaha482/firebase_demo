@@ -13,7 +13,7 @@ class _HomePageState extends State<HomePage> {
 
   var val;
 
-  int color = 1;
+  int color = 0;
 
   @override
   void initState() {
@@ -21,7 +21,7 @@ class _HomePageState extends State<HomePage> {
     super.initState();
 
     database.set({
-      "backgroundColor": 1,
+      "backgroundColor": 0,
     });
 
     database.onValue.listen((DatabaseEvent event) {
@@ -75,7 +75,10 @@ class _HomePageState extends State<HomePage> {
                   child: Center(
                     child: Text(
                       (color == 1) ? 'Occupied' : 'Vacant',
-                      style: const TextStyle(color: Colors.white, fontSize: 20,fontFamily: 'Comfortaa'),
+                      style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontFamily: 'Comfortaa'),
                     ),
                   ),
                 ),
@@ -84,16 +87,28 @@ class _HomePageState extends State<HomePage> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const Text('waitwise@2023',style: TextStyle(fontSize: 14,fontFamily: 'Comfortaa'),),
+                  const Text(
+                    'waitwise@2023',
+                    style: TextStyle(fontSize: 14, fontFamily: 'Comfortaa'),
+                  ),
                   const SizedBox(
                     height: 20,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: const [
-                      Text('about',style: TextStyle(fontSize: 14,fontFamily: 'Comfortaa'),),
-                      Text('privacy',style: TextStyle(fontSize: 14,fontFamily: 'Comfortaa'),),
-                      Text('Terms of use',style: TextStyle(fontSize: 14,fontFamily: 'Comfortaa'),),
+                      Text(
+                        'about',
+                        style: TextStyle(fontSize: 14, fontFamily: 'Comfortaa'),
+                      ),
+                      Text(
+                        'privacy',
+                        style: TextStyle(fontSize: 14, fontFamily: 'Comfortaa'),
+                      ),
+                      Text(
+                        'Terms of use',
+                        style: TextStyle(fontSize: 14, fontFamily: 'Comfortaa'),
+                      ),
                     ],
                   )
                 ],
