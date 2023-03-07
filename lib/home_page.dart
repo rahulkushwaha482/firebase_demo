@@ -29,33 +29,77 @@ class _HomePageState extends State<HomePage> {
 
       setState(() {
         color = val['backgroundColor'];
-
       });
-
     });
-
   }
 
   @override
   Widget build(BuildContext context) {
-
-    return Scaffold(
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            setState(()  {
-               database.update({
-                "backgroundColor": (color == 1) ? 0 : 1,
-              });
-            });
-          },
-          style: ElevatedButton.styleFrom(
-              backgroundColor:
-                  (color == 1) ? Colors.redAccent : Colors.greenAccent,
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-              textStyle:
-                  const TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
-          child: const Text('Click'),
+    return SafeArea(
+      child: Scaffold(
+        body: SizedBox(
+          width: MediaQuery.of(context).size.width,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              RichText(
+                text: TextSpan(
+                    style: TextStyle(
+                      fontSize: 30,
+                      color: (color == 1) ? Colors.red : Colors.green,
+                    ),
+                    children: const [
+                      TextSpan(
+                          text: 'waitwize',
+                          style: TextStyle(
+                            decoration: TextDecoration.underline,
+                          )),
+                    ]),
+              ),
+              InkWell(
+                onTap: () {
+                  setState(() {
+                    database.update({
+                      "backgroundColor": (color == 1) ? 0 : 1,
+                    });
+                  });
+                },
+                child: Container(
+                  width: 200,
+                  height: 200,
+                  decoration: BoxDecoration(
+                    color: (color == 1) ? Colors.red : Colors.green,
+                    borderRadius: const BorderRadius.all(Radius.circular(5)),
+                  ),
+                  child: Center(
+                    child: Text(
+                      (color == 1) ? 'Occupied' : 'Vacant',
+                      style: const TextStyle(color: Colors.white, fontSize: 20,fontFamily: 'Comfortaa'),
+                    ),
+                  ),
+                ),
+              ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const Text('waitwise@2023',style: TextStyle(fontSize: 14,fontFamily: 'Comfortaa'),),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: const [
+                      Text('about',style: TextStyle(fontSize: 14,fontFamily: 'Comfortaa'),),
+                      Text('privacy',style: TextStyle(fontSize: 14,fontFamily: 'Comfortaa'),),
+                      Text('Terms of use',style: TextStyle(fontSize: 14,fontFamily: 'Comfortaa'),),
+                    ],
+                  )
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );
